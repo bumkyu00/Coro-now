@@ -27,7 +27,7 @@ class App extends Component {
 
     const getLocation = async (position) => {
       await updateLocation(position.coords.latitude, position.coords.longitude);
-      axios.get("18.224.137.78:8000/", {params: {"lat": this.state.lat, "lng": this.state.lng}})
+      axios.get("ec2-18-224-137-78.us-east-2.compute.amazonaws.com:8000/", {params: {"lat": this.state.lat, "lng": this.state.lng}})
       .then(res => {
         let doe = res.data['loc']
         doe = this.cutDoe(doe)
@@ -66,8 +66,6 @@ class App extends Component {
       "카지노(내국인)": {'1': '제한 없음', '2': '제한 없음', '2.5': '제한 없음', '3': '제한 없음', '4': '22시까지'},
       "PC방": {'1': '제한 없음', '2': '제한 없음', '2.5': '제한 없음', '3': '제한 없음', '4': '22시까지'},
     }
-    console.log(this.state.facility)
-    console.log(table[this.state.facility])
     let level
     if(this.state.level){
       level = this.state.level.toString()
