@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import MetaTags from 'react-meta-tags';
 
 class App extends Component {
   constructor(props) {
@@ -72,6 +73,9 @@ class App extends Component {
     }
     return (
       <div>
+        <MetaTags>
+          <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        </MetaTags>
         <select name="job" onChange = {(event) => this.setState({facility: event.target.value})}>
           <option value="유흥시설">유흥시설</option>
           <option value="콜라텍/무도장">콜라텍/무도장</option>
