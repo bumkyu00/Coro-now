@@ -27,7 +27,7 @@ class App extends Component {
 
     const getLocation = async (position) => {
       await updateLocation(position.coords.latitude, position.coords.longitude);
-      axios.get("https://ec2-18-224-137-78.us-east-2.compute.amazonaws.com:8000/", {params: {"lat": this.state.lat, "lng": this.state.lng}})
+      axios.get("http://3.17.65.204:8000/", {params: {"lat": this.state.lat, "lng": this.state.lng}})
       .then(res => {
         let doe = res.data['loc']
         doe = this.cutDoe(doe)
